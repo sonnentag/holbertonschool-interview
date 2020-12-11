@@ -3,11 +3,6 @@
 
 
 def canUnlockAll(boxes):
-#!/usr/bin/python3
-""" check for keys to all boxes """
-
-
-def canUnlockAll(boxes):
     ''' canUnlockAll '''
 
     numboxes = len(boxes)
