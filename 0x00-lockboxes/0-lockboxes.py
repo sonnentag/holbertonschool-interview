@@ -20,7 +20,7 @@ def canUnlockAll(boxes):
         for nextkey in boxes[nextlock]:
 
             ''' add distinct new keys/boxen to keylist and unlocked set '''
-            if 0 <= nextkey <= numboxes and nextkey not in unlocked:
+            if 0 <= nextkey < numboxes and nextkey not in unlocked:
                 keylist.append(nextkey)
                 unlocked.add(nextkey)
 
