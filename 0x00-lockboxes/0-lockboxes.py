@@ -8,7 +8,7 @@ def canUnlockAll(boxes):
     numboxes = len(boxes)
     ''' if no boxes, go no further '''
     if numboxes == 0:
-        return True
+        return False
 
     ''' box 0 is already unlocked '''
     unlocked = {0}
