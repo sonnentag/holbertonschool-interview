@@ -15,7 +15,6 @@ def canUnlockAll(boxes):
             for nextkey in boxes[nextlock]:
                 if 0 <= nextkey <= numboxes and nextkey not in unlocked:
                     unlocked.add(nextkey)
-                    print(unlocked)
                     keylist.append(nextkey)
     else:
         return True
