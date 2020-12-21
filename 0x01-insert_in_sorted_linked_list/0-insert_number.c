@@ -19,22 +19,24 @@ listint_t *insert_node(listint_t **head, int number)
 	new->n = number;
 	new->next = NULL;
 
+	/* if we were not given a list, this will be our first node */
 	if (*head == NULL)
 		*head = new;
 	else
 	{
 		current = *head;
-
+		/* should our number go before the first node? */
 		if (number <= current->n)
 			new->next = current, *head = new;
 		else
-		{
+		{ /* move past nodes which should come before ours */
 			while ((current->n < number) && (current->next))
 				temp = current, current = current->next;
 
+			/* if we are not on the last node, insert here */
 			if (current->next)
 				new->next = current, temp->next = new;
-			else
+			else /* insert after, or before this last node */
 				if (number > current->n)
 					temp = current, temp->next = new;
 				else
