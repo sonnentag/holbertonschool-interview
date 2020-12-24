@@ -49,7 +49,6 @@ heap_t *heap_insert(heap_t **root, int value)
 heap_t *find_last(heap_t *root)
 {
 	if (tree_size(root) % 2 == 0)
-	{
 		while (root->right && root->left)
 		{
 			if (tree_height(root->left) == tree_height(root->right))
@@ -57,8 +56,7 @@ heap_t *find_last(heap_t *root)
 			else
 				return (find_last(root->left));
 		}
-	} else
-	{
+	else
 		while (root->right || root->left)
 		{
 			if (tree_height(root->left) != tree_height(root->right) && (root->right))
@@ -66,7 +64,6 @@ heap_t *find_last(heap_t *root)
 			else
 				return (find_last(root->left));
 		}
-	}
 
 	return (root);
 }
