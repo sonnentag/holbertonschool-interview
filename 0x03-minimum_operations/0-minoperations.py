@@ -5,12 +5,11 @@
 def minOperations(n):
     ''' calculates fewest number of operations needed for desired result '''
 
-    r = 0
+    if n <= 1:
+        return 0
 
-    if n > 1:
-        for i in range(2, n):
-            while (n % i == 0):
-                n = n / i
-                r += i
+    for i in range(2, n):
+        while (n % i == 0):
+            return minOperations(int(n / i)) + i
 
-    return r
+    return n
