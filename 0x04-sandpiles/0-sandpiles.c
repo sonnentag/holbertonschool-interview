@@ -31,52 +31,62 @@ static void print_grid(int grid[3][3])
 void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 {
 
-	int x = 0, y = 0, t = 0;
+	int x = 0, y = 0;
 
 	for (x = 0; x < 3; x++)
 		for (y = 0; y < 3; y++)
-		{
 			grid1[x][y] += grid2[x][y];
-			if (grid1[x][y] >= 4)
-				t = 1;
-		}
 
-	while (t == 1)
-		t = topple(grid1);
+	while (checkgrid(grid1))
+	{
+		printf("=\n");
+		print_grid(grid1);
+		topple(grid1);
+	}
 
 }
 
 /**
  * topple - topple grid
  * @grid: 3x3 grid
- * Return: 1 if grid was unstable
+ *
  */
-int topple(int grid[3][3])
+void topple(int grid[3][3])
 {
-	int x, y, ret = 0;
+	int i = 0;
+	int xf[] = {1, 0, 1, 1, 2, 0, 0, 2, 2};
+	int yf[] = {1, 1, 2, 0, 1, 0, 2, 0, 2};
 
-	printf("=\n");
-	print_grid(grid);
+	for (i = 0; i < 9; i++)
+		if (grid[xf[i]][yf[i]] >= 4)
+		{
+			grid[xf[i]][yf[i]] -= 4;
+
+			if (yf[i] > 0)
+				grid[xf[i]][yf[i] - 1]++;
+			if (yf[i] < 2)
+				grid[xf[i]][yf[i] + 1]++;
+			if (xf[i] > 0)
+				grid[xf[i] - 1][yf[i]]++;
+			if (xf[i] < 2)
+				grid[xf[i] + 1][yf[i]]++;
+		}
+}
+
+/**
+ * checkgrid - test if grid is unstable
+ * @grid: 3x3 grid
+ * Return: 1 is yes, or 0
+ *
+ */
+int checkgrid(int grid[3][3])
+{
+	int x = 0, y = 0;
 
 	for (x = 0; x < 3; x++)
 		for (y = 0; y < 3; y++)
-		{
-			if (grid[x][y] >= 4)
-			{
-				grid[x][y] -= 4;
+			if (grid[x][y] > 3)
+				return (1);
 
-				if (y > 0)
-					grid[x][y - 1]++;
-				if (y < 2)
-					grid[x][y + 1]++;
-				if (x > 0)
-					grid[x - 1][y]++;
-				if (x < 2)
-					grid[x + 1][y]++;
-
-				ret = 1;
-			}
-		}
-
-	return (ret);
+	return (0);
 }
