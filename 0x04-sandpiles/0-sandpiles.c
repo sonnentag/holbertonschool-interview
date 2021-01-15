@@ -54,8 +54,8 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 void topple(int grid[3][3])
 {
 	int i = 0;
-	int xf[] = {1, 0, 1, 1, 2, 0, 0, 2, 2};
-	int yf[] = {1, 1, 2, 0, 1, 0, 2, 0, 2};
+	int xf[] = {1, 0, 0, 2, 2, 0, 1, 1, 2};
+	int yf[] = {1, 0, 2, 0, 2, 1, 0, 2, 1};
 
 	for (i = 0; i < 9; i++)
 		if (grid[xf[i]][yf[i]] >= 4)
