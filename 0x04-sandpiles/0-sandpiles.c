@@ -71,7 +71,7 @@ void topple(int grid[3][3], int map)
 	{
 		for (y = 0; y < 3; y++)
 		{
-			b = (map / pos % 10) >> y; /* shift bits of this pos from left to right */
+			b = (map / pos % 10) >> y; /* shift bits from this position left to right */
 			b &= 1; /* capture just the least significant bit */
 			if (b == 1)
 			{
@@ -93,7 +93,7 @@ void topple(int grid[3][3], int map)
 /**
  * mapgrid - map grid cells to topple
  * @grid: 3x3 grid
- * Return: 0 if none to topple, or 3 digit binary repr of cells to topple
+ * Return: up to 3 digit number representing 3 rows of cells to topple, or 0 if none
  *
  */
 int mapgrid(int grid[3][3])
