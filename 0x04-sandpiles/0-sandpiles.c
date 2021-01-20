@@ -52,7 +52,7 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 		printf("=\n");
 		print_grid(grid1);
 		topple(grid1, map);
-		map = 0 + mapgrid(grid1);
+		map = mapgrid(grid1);
 	}
 
 }
