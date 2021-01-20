@@ -65,28 +65,27 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
  */
 void topple(int grid[3][3], int map)
 {
-	int x, y, d, pos = 2, div = 100;
+	int x, y, b, pos, div = 100;
 
-	for (x = 0; x < 3; x++)
+	for (x = 2; x >= 0; x--)
 	{
 		for (y = 0; y < 3; y++)
 		{
-			d = (map / div % 10) >> y;
-			d &= 1;
-			if (d)
+			b = (map / div % 10) >> y;
+			b &= 1;
+			if (b)
 			{
-				grid[pos][y] -= 4;
+				grid[x][y] -= 4;
 				if (y > 0)
-					grid[pos][y - 1]++;
+					grid[x][y - 1]++;
 				if (y < 2)
-					grid[pos][y + 1]++;
-				if (pos > 0)
-					grid[pos - 1][y]++;
-				if (pos < 2)
-					grid[pos + 1][y]++;
+					grid[x][y + 1]++;
+				if (x > 0)
+					grid[x - 1][y]++;
+				if (x < 2)
+					grid[x + 1][y]++;
 			}
 		}
-		pos -= 1;
 		div /= 10;
 	}
 }
