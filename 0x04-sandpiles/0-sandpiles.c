@@ -65,13 +65,13 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
  */
 void topple(int grid[3][3], int map)
 {
-	int x, y, b, pos = 100;
+	int x, y, b, pos = 1;
 
-	for (x = 2; x >= 0; x--) /* iterate down to match map digit order */
+	for (x = 0; x < 3; x++) /* iterate down to match map digit order */
 	{
 		for (y = 0; y < 3; y++)
 		{
-			b = (map / pos % 10) >> y; /* shift bits from this position left to right */
+			b = (map / pos % 10) >> y; /* shift bits from pos left to y places right */
 			b &= 1; /* capture just the least significant bit */
 			if (b == 1)
 			{
@@ -86,7 +86,7 @@ void topple(int grid[3][3], int map)
 					grid[x + 1][y]++;
 			}
 		}
-		pos /= 10; /* move working position to the right */
+		pos *= 10; /* move working position to the left */
 	}
 }
 
@@ -107,7 +107,7 @@ int mapgrid(int grid[3][3])
 			if (grid[x][y] > 3)
 				map += (pos << y); /* shift bit y number of places and add to map */
 
-		pos = pos * 10; /* move to next position to insert bits */
+		pos *= 10; /* move to next position to insert bits */
 	}
 
 	return (map);
