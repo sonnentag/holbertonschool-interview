@@ -42,7 +42,7 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 			grid1[x][y] += grid2[x][y];
 
 			if (grid1[x][y] > 3)
-				map += (pos << y); /* shift y to pos places and add to map */
+				map += (pos << y); /* shift bit y number of places and add to map */
 		}
 		pos = pos * 10; /* move to next position to insert bits */
 	}
@@ -93,7 +93,7 @@ void topple(int grid[3][3], int map)
 /**
  * mapgrid - map grid cells to topple
  * @grid: 3x3 grid
- * Return: up to 3 digit number representing 3 rows of cells to topple, or 0 if none
+ * Return: number of bits representing 3 rows of cells to topple, or 0 if none
  *
  */
 int mapgrid(int grid[3][3])
@@ -105,7 +105,7 @@ int mapgrid(int grid[3][3])
 	{
 		for (y = 0; y < 3; y++)
 			if (grid[x][y] > 3)
-				map += (pos << y); /* shift y to pos places and add to map */
+				map += (pos << y); /* shift bit y number of places and add to map */
 
 		pos = pos * 10; /* move to next position to insert bits */
 	}
