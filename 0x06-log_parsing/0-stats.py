@@ -4,6 +4,11 @@
 import sys
 
 
+codes = {}
+count = 0
+size = 0
+
+
 def display_stats(codes, size):
     ''' function used to print formatted stats below '''
 
@@ -11,10 +16,6 @@ def display_stats(codes, size):
     for k, v in sorted(codes.items(), key=lambda x: x[0]):
         print("{}: {}".format(k, v))
 
-
-codes = {}
-count = 0
-size = 0
 
 """ expect lines ending with: ... HTTP/1.1" <status code> <file size>"""
 try:
