@@ -12,12 +12,12 @@ def display_stats(codes, size):
         print("{}: {}".format(k, v))
 
 
-""" expect lines ending with: ... HTTP/1.1" <status code> <file size>"""
 try:
     codes = {}
     count = 0
     size = 0
 
+    ''' expect lines ending with: ... <status code> <file size>'''
     for line in sys.stdin:
         count += 1
         ''' <status code> '''
