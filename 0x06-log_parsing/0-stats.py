@@ -21,7 +21,6 @@ if __name__ == "__main__":
 
     try:
         for line in sys.stdin:
-
             count += 1
             size += int(line.split()[-1])
             code = line.split()[-2]
