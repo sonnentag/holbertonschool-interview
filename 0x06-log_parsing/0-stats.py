@@ -6,7 +6,7 @@ def display_stats(codes, size):
     ''' function used to print formatted stats below '''
 
     print("File size: {}".format(size))
-    for k, v in sorted(codes.items(), key=lambda x: x[0]):
+    for k, v in sorted(codes.items()):
         print("{}: {}".format(k, v))
 
 
