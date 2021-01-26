@@ -4,11 +4,6 @@
 import sys
 
 
-codes = {}
-count = 0
-size = 0
-
-
 def display_stats(codes, size):
     ''' function used to print formatted stats below '''
 
@@ -19,6 +14,10 @@ def display_stats(codes, size):
 
 """ expect lines ending with: ... HTTP/1.1" <status code> <file size>"""
 try:
+    codes = {}
+    count = 0
+    size = 0
+
     for line in sys.stdin:
         count += 1
         ''' <status code> '''
