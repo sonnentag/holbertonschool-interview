@@ -19,8 +19,12 @@ if __name__ == "__main__":
     count = 0
     size = 0
 
-    try:
-        for line in sys.stdin:
+    while True:
+        try:
+            line = sys.stdin.readline()
+            if not line:
+                display_stats(codes, size)
+                break
             count += 1
             size += int(line.split()[-1])
             code = line.split()[-2]
@@ -30,5 +34,6 @@ if __name__ == "__main__":
                 display_stats(codes, size)
                 count = 0
 
-    except KeyboardInterrupt:
-        display_stats(codes, size)
+        except KeyboardInterrupt:
+            display_stats(codes, size)
+            break
