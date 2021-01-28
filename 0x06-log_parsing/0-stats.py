@@ -23,7 +23,8 @@ if __name__ == "__main__":
         try:
             line = sys.stdin.readline()
             if not line:
-                display_stats(codes, size)
+                if count >= 1:
+                    display_stats(codes, size)
                 break
             count += 1
             size += int(line.split()[-1])
