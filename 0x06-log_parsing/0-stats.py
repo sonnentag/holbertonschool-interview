@@ -36,10 +36,10 @@ if __name__ == "__main__":
                 break
             count += 1
             if isint(line.split()[-1]):
+                size += int(line.split()[-1])
                 code = line.split()[-2]
                 if isint(code):
                     status[code] = status.get(code, 0) + 1
-                size += int(line.split()[-1])
 
                 if count == 10:
                     display_stats(status, size)
