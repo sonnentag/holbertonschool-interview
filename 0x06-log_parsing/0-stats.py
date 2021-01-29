@@ -26,6 +26,7 @@ if __name__ == "__main__":
 
     status = {}
     count = 0
+    size = 0
     file_size = 0
 
     while True:
@@ -36,7 +37,7 @@ if __name__ == "__main__":
                 break
             count += 1
             size = line.split()[-1]
-            if isint(size):
+            if size != 0 and isint(size):
                 code = line.split()[-2]
                 status[code] = status.get(code, 0) + 1
                 file_size += int(size)
