@@ -10,6 +10,15 @@ def display_stats(status, size):
         print("{}: {}".format(k, v))
 
 
+def isint(s):
+    ''' helper to test if string is int '''
+    try:
+        int(s)
+        return True
+    except ValueError:
+        return False
+
+
 if __name__ == "__main__":
     ''' expect line ending with: .. <status code> <file size>'''
 
@@ -27,10 +36,10 @@ if __name__ == "__main__":
                 break
             count += 1
             size = line.split()[-1]
-            code = line.split()[-2]
-            if isinstance(size, int):
+            if isint(size):
+                code = line.split()[-2]
                 status[code] = status.get(code, 0) + 1
-                file_size += size
+                file_size += int(size)
 
                 if count == 10:
                     display_stats(status, size)
