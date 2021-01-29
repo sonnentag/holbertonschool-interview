@@ -15,10 +15,9 @@ if __name__ == "__main__":
 
     import sys
 
-    codes = ['200', '301', '400', '401', '403', '404', '405', '500']
     status = {}
     count = 0
-    size = 0
+    file_size = 0
 
     while True:
         try:
@@ -27,10 +26,11 @@ if __name__ == "__main__":
                 display_stats(status, size)
                 break
             count += 1
+            size = line.split()[-1]
             code = line.split()[-2]
-            if code in codes:
+            if isinstance(size, int):
                 status[code] = status.get(code, 0) + 1
-                size += int(line.split()[-1])
+                file_size += size
 
                 if count == 10:
                     display_stats(status, size)
