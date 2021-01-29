@@ -24,8 +24,7 @@ if __name__ == "__main__":
         try:
             line = sys.stdin.readline()
             if not line:
-                if count >= 1:
-                    display_stats(status, size)
+                display_stats(status, size)
                 break
             count += 1
             code = line.split()[-2]
