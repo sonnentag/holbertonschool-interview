@@ -3,7 +3,7 @@
 /**
  * check_cycle - check list for cycle
  * @list: list to check
- * Return: 1 if true or 0
+ * Return: 1 if true else 0
  */
 int check_cycle(listint_t *list)
 {
@@ -17,7 +17,7 @@ int check_cycle(listint_t *list)
  * compare_nodes - descend into list
  * @slow: slow moving next
  * @fast: fast moving next
- * Return: 1 if nodes are same or 0
+ * Return: 1 if nodes are same else 0
  */
 int compare_nodes(listint_t *slow, listint_t *fast)
 {
