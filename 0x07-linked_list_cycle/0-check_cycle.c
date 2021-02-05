@@ -7,10 +7,7 @@
  */
 int check_cycle(listint_t *list)
 {
-	if ((!list) || (!list->next))
-		return (0);
-
-	return (compare_nodes(list, list->next));
+	return (!list || !list->next ? 0 : compare_nodes(list, list->next));
 }
 
 /**
@@ -21,14 +18,8 @@ int check_cycle(listint_t *list)
  */
 int compare_nodes(listint_t *slow, listint_t *fast)
 {
-	if (fast)
-	{
-		if (slow == fast)
-			return (1);
-
-		while (fast->next)
-			return (compare_nodes(slow->next, fast->next->next));
-	}
+	if (fast->next)
+		return (slow == fast ? 1 : compare_nodes(slow->next, fast->next->next));
 
 	return (0);
 }
