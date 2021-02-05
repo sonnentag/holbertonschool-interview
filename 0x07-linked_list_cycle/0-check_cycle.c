@@ -18,7 +18,7 @@ int check_cycle(listint_t *list)
  */
 int compare_nodes(listint_t *slow, listint_t *fast)
 {
-	if (fast->next)
+	if (fast && fast->next)
 		return (slow == fast ? 1 : compare_nodes(slow->next, fast->next->next));
 
 	return (0);
