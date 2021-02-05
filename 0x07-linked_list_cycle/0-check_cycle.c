@@ -19,9 +19,9 @@ int check_cycle(listint_t *list)
  */
 int compare_nodes(listint_t *slow, listint_t *fast)
 {
-	/* if we were passed a fast next node which is not at the end */
+	/* if we were passed a fast node which is not at the end */
 	if (fast && fast->next)     /* return 1 if nodes match or else recurse */
 		return (slow == fast ? 1 : compare_nodes(slow->next, fast->next->next));
 
-	return (0);
+	return (0); /* end of list */
 }
