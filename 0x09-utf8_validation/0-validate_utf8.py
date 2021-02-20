@@ -11,7 +11,7 @@ def validUTF8(data):
     for d in data:
 
         if not count:
-            ''' count significant bits '''
+            ''' leftmost count of significant bits '''
             count = sigBits(d)
 
             ''' 0 is first bit in 1 byte sequence '''
@@ -38,7 +38,7 @@ def validUTF8(data):
 
 
 def sigBits(num):
-    ''' count significant bits '''
+    ''' count down consecutive significant bits from the left '''
 
     count = 0
 
