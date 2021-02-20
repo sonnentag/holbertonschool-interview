@@ -6,22 +6,30 @@ def validUTF8(data):
     ''' return true or false '''
 
     count = 0
+
     ''' for each number provided '''
     for d in data:
+
         if not count:
             ''' count significant bits '''
             count = sigBits(d)
-            ''' 0 is first bit in 1 byte sequence ''' 
+
+            ''' 0 is first bit in 1 byte sequence '''
             if count == 0:
                 continue
-            ''' only 2 to 4 are valid ''' 
+
+            ''' only 2 to 4 are valid '''
             if count == 1 or count > 4:
                 return False
+
             count -= 1
+
         else:
-            ''' decrement until we reach the end ''' 
-            ''' or bytes no longer begin with 10 '''
+
+            ''' decrement until we reach the end '''
             count -= 1
+
+            ''' or bytes no longer begin with 10 '''
             if sigBits(d) != 1:
                 return False
 
@@ -41,6 +49,7 @@ def sigBits(num):
         ''' at i positions to the left '''
         if num & (1 << i):
             count += 1
+
         else:
             break
 
