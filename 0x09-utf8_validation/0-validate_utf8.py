@@ -50,8 +50,10 @@ def sigBits(num):
         ''' check to see if our num has a 1 '''
         ''' at i positions to the left '''
         if num & (1 << i):
+            ''' increment count '''
             count += 1
 
+        ''' we've reached a 0 '''
         else:
             break
 
