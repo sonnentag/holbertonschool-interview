@@ -31,4 +31,5 @@ def sigBits(num):
             count += 1
         else:
             break
+
     return count
