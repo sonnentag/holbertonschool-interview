@@ -22,8 +22,10 @@ def validUTF8(data):
             if count == 1 or count > 4:
                 return False
 
+            ''' we're done with this first byte '''
             count -= 1
 
+        ''' we now have a count of bytes in this sequence '''
         else:
 
             ''' decrement until we reach the end '''
