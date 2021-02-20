@@ -23,7 +23,7 @@ def validUTF8(data):
 
 
 def sigBits(num):
-    ''' count ones '''
+    ''' count significant bits '''
 
     count = 0
     for i in range(7, -1, -1):
