@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <math.h>
 
 
 /**
@@ -29,6 +30,8 @@ typedef struct skiplist_s
 skiplist_t *create_skiplist(int *array, size_t size);
 void print_skiplist(const skiplist_t *list);
 void free_skiplist(skiplist_t *list);
-skiplist_t *linear_skip(skiplist_t *list, int value);
+skiplist_t *linear_skip(skiplist_t *head, int value);
+void init_express(skiplist_t *list, size_t size);
+
 
 #endif /* _SEARCH_H_ */
