@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """ making change """
 
+from math import floor
+
 
 def makeChange(coins, total):
     ''' make change
@@ -15,7 +17,7 @@ def makeChange(coins, total):
                 break
             for i in coins:
                 if i < total:
-                    count += round(total/i)
+                    count += floor(total/i)
                     total = total % i
                     if total == 0:
                         return count
