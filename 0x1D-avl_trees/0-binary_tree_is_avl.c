@@ -35,11 +35,14 @@ int binary_tree_is_bst(const binary_tree_t *tree, int max)
 
 	if (tree->left)
 		if (binary_tree_is_bst(tree->left, max) == 0)
-			return (1);
+		{
+			printf("%d\n", tree->n);
+			return (0);
+		}
 
 	if (tree->right)
 		if (binary_tree_is_bst(tree->right, max) == 0)
-			return (1);
+			return (0);
 
 	return (1);
 }
@@ -57,12 +60,15 @@ int binary_tree_is_avl(const binary_tree_t *tree)
 	if (!tree)
 		return (0);
 
-	max = tree->n;
-
 	if ((!tree->left) && (!tree->right))
 		return (1);
 
-	if (binary_tree_is_bst(tree, max) == 0)
+	max = tree->left->n;
+	if ((max > tree->n) || (binary_tree_is_bst(tree->left, max) == 0))
+		return (0);
+
+	max = tree->right->n;
+	if ((max < tree->n) || (binary_tree_is_bst(tree->right, max) == 0))
 		return (0);
 
 	if (tree->left)
