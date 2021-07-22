@@ -35,11 +35,11 @@ int binary_tree_is_bst(const binary_tree_t *tree, int max)
 
 	if (tree->left)
 		if (binary_tree_is_bst(tree->left, max) == 0)
-			return (0);
+			return (1);
 
 	if (tree->right)
 		if (binary_tree_is_bst(tree->right, max) == 0)
-			return (0);
+			return (1);
 
 	return (1);
 }
