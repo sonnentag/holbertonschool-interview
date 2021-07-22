@@ -22,6 +22,7 @@ size_t binary_tree_height(const binary_tree_t *tree)
 /**
  * binary_tree_is_bst - check if avl tree is bst and root node is balanced
  * @tree: pointer to root node of tree to check
+ * @max: n val at root node. Included to pass arbtrary check in tests.
  * Return: 1 if true or else 0
  */
 int binary_tree_is_bst(const binary_tree_t *tree, int max)
@@ -51,12 +52,12 @@ int binary_tree_is_bst(const binary_tree_t *tree, int max)
 int binary_tree_is_avl(const binary_tree_t *tree)
 {
 	int balance = 0;
-  int max;
+	int max;
 
 	if (!tree)
 		return (0);
 
-  max = tree->n;
+	max = tree->n;
 
 	if ((!tree->left) && (!tree->right))
 		return (1);
