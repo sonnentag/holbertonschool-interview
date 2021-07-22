@@ -20,24 +20,24 @@ size_t binary_tree_height(const binary_tree_t *tree)
 }
 
 /**
- * binary_tree_is_bst - check if avl tree is bst
+ * binary_tree_is_bst - check if avl tree is bst and root node is balanced
  * @tree: pointer to root node of tree to check
  * Return: 1 if true or else 0
  */
-int binary_tree_is_bst(const binary_tree_t *tree)
+int binary_tree_is_bst(const binary_tree_t *tree, int max)
 {
-	if (tree->left != NULL && tree->left->n > tree->n)
+	if (tree->left != NULL && (tree->left->n > tree->n || tree->left->n > max))
 		return (0);
 
-	if (tree->right != NULL && tree->right->n < tree->n)
+	if (tree->right != NULL && (tree->right->n < tree->n || tree->right->n < max))
 		return (0);
 
 	if (tree->left)
-		if (binary_tree_is_bst(tree->left) == 0)
+		if (binary_tree_is_bst(tree->left, max) == 0)
 			return (0);
 
 	if (tree->right)
-		if (binary_tree_is_bst(tree->right) == 0)
+		if (binary_tree_is_bst(tree->right, max) == 0)
 			return (0);
 
 	return (1);
@@ -51,14 +51,17 @@ int binary_tree_is_bst(const binary_tree_t *tree)
 int binary_tree_is_avl(const binary_tree_t *tree)
 {
 	int balance = 0;
+  int max;
 
 	if (!tree)
 		return (0);
 
+  max = tree->n;
+
 	if ((!tree->left) && (!tree->right))
 		return (1);
 
-	if (binary_tree_is_bst(tree) == 0)
+	if (binary_tree_is_bst(tree, max) == 0)
 		return (0);
 
 	if (tree->left)
