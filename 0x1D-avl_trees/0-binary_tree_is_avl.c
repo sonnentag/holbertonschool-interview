@@ -35,10 +35,7 @@ int binary_tree_is_bst(const binary_tree_t *tree, int max)
 
 	if (tree->left)
 		if (binary_tree_is_bst(tree->left, max) == 0)
-		{
-			printf("%d\n", tree->n);
 			return (0);
-		}
 
 	if (tree->right)
 		if (binary_tree_is_bst(tree->right, max) == 0)
