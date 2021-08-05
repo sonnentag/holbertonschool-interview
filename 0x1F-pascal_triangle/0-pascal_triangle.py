@@ -16,5 +16,5 @@ def pascal_triangle(n):
         for k in range(1, x + 1):
             row.append(col)
             col = int(col * (x - k) / k)
-            triangle.append(row)
+        triangle.append(row)
     return triangle
