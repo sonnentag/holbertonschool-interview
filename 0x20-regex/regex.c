@@ -1,14 +1,14 @@
 #include "regex.h"
 
 /**
- * regex_match - 
- * @str: string to scan 
- * @pattern: regular expression 
- * Return: 1 if match else 0 
+ * regex_match - checks whether a given regex pattern matches a given string
+ * @str: string to scan
+ * @pattern: regex pattern
+ * Return: 1 if match else 0
  */
 int regex_match(char const *str, char const *pattern)
 {
-	int tmp = 0;
+	int x = 0;
 
 	if (*str == '\0' && *pattern == '\0')
 		return (1);
@@ -19,9 +19,9 @@ int regex_match(char const *str, char const *pattern)
 	if (*(pattern + 1) == '*')
 	{
 		if (*str != '\0' && (*str == *pattern || *pattern == '.'))
-				tmp = regex_match(str + 1, pattern);
+			x = regex_match(str + 1, pattern);
 
-		return (regex_match(str, pattern + 2) || tmp);
+		return (regex_match(str, pattern + 2) || x);
 	}
 
 	return (0);
