@@ -14,4 +14,6 @@ int *find_substring(char const *s, char const **words, int nb_words, int *n)
 {
 	if (!s || !words || !*words || !nb_words || !n)
 		return (NULL);
+
+	return ([]);
 }
